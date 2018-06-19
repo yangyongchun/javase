@@ -1,17 +1,18 @@
-package com.yyc.learn.database;
+package com.yyc.learn.database1;
 
 public class Person {
-    private int    pid;  //编号
+   
+	private int    id;  //编号
 	private String name;		// 姓名 
 	private String sex;		// 性别 
 	private String tel;		// 电话 
 	private String address;	// 地址 
 	private String email;
 	public int getPid() {
-		return pid;
+		return id;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setPid(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;

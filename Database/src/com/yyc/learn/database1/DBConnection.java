@@ -1,4 +1,4 @@
-package com.yyc.learn.database;
+package com.yyc.learn.database1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
 
 	public static Connection getConn() {
-		String url="jdbc:mysql://localhost:3306/shiyan4";
+		String url="jdbc:mysql://localhost:3306/shiyan4?useUnicode=true&characterEncoding=utf-8";
 		String username="root";
 		String password="yyc19970204";
 		String driver="com.mysql.jdbc.Driver";

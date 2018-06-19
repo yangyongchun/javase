@@ -1,4 +1,4 @@
-package com.yyc.learn.database;
+package com.yyc.learn.database1;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,7 +47,7 @@ public class PersonDao {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Person p=new Person();
-				p.setPid(rs.getInt("pid"));
+				p.setPid(rs.getInt("id"));
 				p.setName(rs.getString("name"));
 				p.setSex(rs.getString("sex"));
 				p.setTel(rs.getString("tel"));
