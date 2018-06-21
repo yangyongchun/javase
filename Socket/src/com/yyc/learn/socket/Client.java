@@ -29,7 +29,7 @@ public class Client extends Frame implements ActionListener {
 			}
 		});
 		try {
-			f=new File("C:\text.txt");
+			f=new File("/Users/yyc/Documents/text.txt");
 			f.createNewFile();
 			out = new BufferedWriter(new FileWriter(f));
 			client=new Socket("127.0.0.1",9527);
