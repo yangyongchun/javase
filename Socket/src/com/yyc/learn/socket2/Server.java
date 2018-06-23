@@ -1,4 +1,4 @@
-package com.yyc.learn.socket;
+package com.yyc.learn.socket2;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -17,8 +17,6 @@ public class Server extends Frame implements ActionListener {
 	OutputStream os;
 	public Server() {
 		super("服务器");
-		setSize(400,300);
-		setVisible(true);
 		p.add(label);
 		p.add(tf);
 		tf.addActionListener(this);
@@ -29,6 +27,8 @@ public class Server extends Frame implements ActionListener {
 				System.exit(0);
 			}
 		});
+		setSize(400,300);
+		setVisible(true);
 		try {
 			server=new ServerSocket(9527);
 			client=server.accept();
@@ -52,13 +52,6 @@ public class Server extends Frame implements ActionListener {
 		}
 		
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		new Server();
-		
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -73,6 +66,12 @@ public class Server extends Frame implements ActionListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		new Server();
 		
 	}
 

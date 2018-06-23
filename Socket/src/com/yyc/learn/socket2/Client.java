@@ -1,4 +1,4 @@
-package com.yyc.learn.socket;
+package com.yyc.learn.socket2;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -12,12 +12,8 @@ public class Client extends Frame implements ActionListener {
 	Socket client;
 	InputStream is;
 	OutputStream os;
-	File f;
-	BufferedWriter out;
 	public Client() {
 		super("客户机");
-		setSize(400,300);
-		setVisible(true);
 		p.add(label);
 		p.add(tf);
 		tf.addActionListener(this);
@@ -28,10 +24,9 @@ public class Client extends Frame implements ActionListener {
 				System.exit(0);
 			}
 		});
+		setSize(400,300);
+		setVisible(true);
 		try {
-			f=new File("/Users/yyc/Documents/text.txt");
-			f.createNewFile();
-			out = new BufferedWriter(new FileWriter(f));
 			client=new Socket("127.0.0.1",9527);
 			ta.append("已经和服务器连接："+client.getInetAddress().getHostName()+"\n\n");
 			is=client.getInputStream();
@@ -46,19 +41,12 @@ public class Client extends Frame implements ActionListener {
 				is.read(buff);
 				String str=new String(buff);
 				ta.append("服务器说："+str+"\n");
-				out.write(str+"\n");
-				out.flush();
+
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
-		
-	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		new Client();
 		
 	}
 
@@ -78,6 +66,11 @@ public class Client extends Frame implements ActionListener {
 		}
 		
 	}
-
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		new Client();
+		
+	}
 }
 
