@@ -27,8 +27,8 @@ public class SearchFromXML extends JFrame {
 		jtf2=new JTextField(12);
 		jta=new JTextArea();
 		js=new JScrollPane(jta);
-		js.setVerticalScrollBarPolicy(
-				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+//		js.setVerticalScrollBarPolicy(
+//				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		jp1=new JPanel();
 		b1=new JButton("确定");
 		b1.addActionListener(new ActionListener() {

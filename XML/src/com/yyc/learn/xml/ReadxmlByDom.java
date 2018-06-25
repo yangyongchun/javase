@@ -14,13 +14,13 @@ import org.w3c.dom.NodeList;
   
 /** 
  * 用DOM方式读取xml文件 
- * @author lune 
+ * @author yyc
  */  
 public class ReadxmlByDom {  
     private static DocumentBuilderFactory dbFactory = null;  
     private static DocumentBuilder db = null;  
     private static Document document = null;  
-    private static List<Student> books = null;  
+    private static List<Student> students = null;  
     static{  
         try {  
             dbFactory = DocumentBuilderFactory.newInstance();  
@@ -34,25 +34,25 @@ public class ReadxmlByDom {
         //将给定 URI 的内容解析为一个 XML 文档,并返回Document对象  
         document = db.parse(fileName);  
         //按文档顺序返回包含在文档中且具有给定标记名称的所有 Element 的 NodeList  
-        NodeList bookList = document.getElementsByTagName("学生");  
-        books = new ArrayList<Student>();  
-        //遍历books  
-        for(int i=0;i<bookList.getLength();i++){  
+        NodeList studentList = document.getElementsByTagName("学生");//System.out.println(studentList.getLength());  
+        students = new ArrayList<Student>();  
+        //遍历students
+        for(int i=0;i<studentList.getLength();i++){  
            
         	    Student s = new Student();  
-            //获取第i个book结点  
-            org.w3c.dom.Node node = bookList.item(i);  
-            //获取第i个book的所有属性  
+            //获取第i个student结点  
+            org.w3c.dom.Node node = studentList.item(i);  
+            //获取第i个student的所有属性  
             NamedNodeMap namedNodeMap = node.getAttributes();  
             //获取已知名为id的属性值  
             String id = namedNodeMap.getNamedItem("学号").getTextContent();//System.out.println(id);  
             s.set学号(id);  
               
-            //获取book结点的子节点,包含了Test类型的换行  
-            NodeList cList = node.getChildNodes();//System.out.println(cList.getLength());9  
+            //获取student结点的子节点,包含了Test类型的换行  
+            NodeList cList = node.getChildNodes();//System.out.println(cList.getLength());
               
-            //将一个book里面的属性加入数组  
-            ArrayList<String> contents = new ArrayList<>();  
+            //将一个student里面的属性加入数组  
+            List<String> contents = new ArrayList<>();  
             for(int j=1;j<cList.getLength();j+=2){  
                   
                 org.w3c.dom.Node cNode = cList.item(j);  
@@ -64,11 +64,9 @@ public class ReadxmlByDom {
             s.set姓名(contents.get(0));  
             s.set性别(contents.get(1));  
             s.set年龄(contents.get(2));  
-            books.add(s);  
+            students.add(s);  
         }  
-          
-        return books;  
-          
+        return students;  
     }  
       
     public static void main(String args[]){  
