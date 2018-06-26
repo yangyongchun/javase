@@ -35,21 +35,21 @@ public class ReadxmlByDom {
         //按文档顺序返回包含在文档中且具有给定标记名称的所有 Element 的 NodeList  
         NodeList bookList = document.getElementsByTagName("学生");  
         books = new ArrayList<Student>();  
-        //遍历books  
+        //遍历students  
         for(int i=0;i<bookList.getLength();i++){  
             Student s = new Student();  
-            //获取第i个book结点  
+            //获取第i个student结点  
             org.w3c.dom.Node node = bookList.item(i);  
-            //获取第i个book的所有属性  
+            //获取第i个student的所有属性  
             NamedNodeMap namedNodeMap = node.getAttributes();  
             //获取已知名为id的属性值  
             String id = namedNodeMap.getNamedItem("学号").getTextContent();//System.out.println(id);  
             s.set学号(id);  
               
-            //获取book结点的子节点,包含了Test类型的换行  
+            //获取student结点的子节点,包含了Test类型的换行  
             NodeList cList = node.getChildNodes();//System.out.println(cList.getLength());9  
               
-            //将一个book里面的属性加入数组  
+            //将一个student里面的属性加入数组  
             ArrayList<String> contents = new ArrayList<>();  
             for(int j=1;j<cList.getLength();j+=2){  
                   
@@ -77,7 +77,6 @@ public class ReadxmlByDom {
             for(Student s :list){  
                 dao.addStudent(s);
             }  
-            System.out.print("插入数据库成功！");
         } catch (Exception e) {  
             // TODO Auto-generated catch block  
             e.printStackTrace();  
