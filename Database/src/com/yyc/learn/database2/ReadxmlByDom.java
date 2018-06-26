@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
   
 /** 
  * 用DOM方式读取xml文件 
- * @author lune 
+ * @author yyc
  */  
 public class ReadxmlByDom {  
     private static DocumentBuilderFactory dbFactory = null;  
