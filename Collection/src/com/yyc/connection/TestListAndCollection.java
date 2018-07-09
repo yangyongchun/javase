@@ -14,10 +14,6 @@ class Apple {
 	}
 	
 }
-class Pear {
-	
-	
-}
 /**
  * 
  * @author yyc
@@ -32,7 +28,6 @@ public class TestListAndCollection {
 		l.add(new Apple());
 		l.add(new Apple());
 		l.add(new Apple());
-//		c.add(new Pear());
 		for(int i=0;i<l.size();i++) {
 			System.out.println(((Apple)l.get(i)).getId());//collection
 			//Collection没有get(i)方法需要先转型
